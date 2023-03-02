@@ -1,21 +1,82 @@
 .App {
   text-align: center;
 }
+.WhiteThemes{
+  background: white;
+  color: black
+}
+.WhiteThemes a{
+ 
+  color: black
+}
+.DropdownMenu div {
+display: flex;
+justify-content: flex-start;
+padding-left: 10px;
+}
 
+.DropdownMenu div a{
+  text-decoration: none;
+}
+.BlackThemes{
+  background: black;
+  color: white;
+}
+.BlackThemes a{
+  
+  color: white;
+}
+.noneUser{
+  display: none;
+}
+.ExitButton{
+  margin-right: 20px;
+  width: 60px;
+  height: 40px;
+  border: none;
+  border-radius: 19px;
+  background: #552BFC;
+  color: #fff;
+  font-weight: 700;
+}
+.OpenModal{
+  display: block;
+}
+.noneModal{
+  display: none;
+}
+.ForUser{
+  width: 47px;
+}
+.ForModalExit{
+  margin: 20px;
+  width: 126px;
+    height: 40px;
+    border: none;
+    border-radius: 19px;
+    background:#552BFC;
+    color: #fff;
+    font-weight: 700;
+
+}
 .App-logo {
   height: 40vmin;
   pointer-events: none;
 }
+
 .logoClass{
   width: 100px;
   height: 77px;
+  
 }
 @media (prefers-reduced-motion: no-preference) {
   .App-logo {
     animation: App-logo-spin infinite 20s linear;
   }
 }
-
+.nameThemes{
+  margin: 15px;
+}
 .App-header {
   background-color: #282c34;
   min-height: 100vh;
@@ -27,24 +88,20 @@
   color: white;
 }
 
-.App-link {
-  color: #61dafb;
+.NavbarPos{
+  position: fixed;
 }
 .ForRouter{
   display: flex;
-  background: black;
+ 
 }
 .ForRouter div{
   margin: 10px;
 }
 .RouterLink{
   text-decoration: none;
-  color: white;
-  
 }
 .ForTopText{
-  background: black;
-  color: white;
   font-size: 30px;
   padding: 15px;
     padding-left: 30px;
@@ -66,6 +123,16 @@
   position: relative;
   margin-left: 20px;
 }
+.forResult{
+  margin-left: 37px;
+  height: 200px;
+  width: 150px;
+  position: relative;
+}
+.forResult img{
+  height: 150px;
+  width: 150px;
+}
 .overlay1{
   position: absolute;
   top: 0;
@@ -74,7 +141,7 @@
   width: 150px;
   transition: background 0.5s ease;
 }
-.forImgMusic,
+.forImgMusic,.forResult,
 .forImgMusicP:focus-visible{
   outline: black;
 }
@@ -83,6 +150,10 @@
   background: rgba(0, 0, 0, 0.7);
 }
 .forImgMusicP:hover .overlay1{
+  display: block;
+   background: rgba(0, 0, 0, 0.7);
+ }
+ .forResult:hover .overlay1{
   display: block;
    background: rgba(0, 0, 0, 0.7);
  }
@@ -115,6 +186,15 @@
   margin-top: 10px;
   background-repeat: no-repeat;
 }
+.forResult:hover .button1 {
+  opacity: 1;
+   background: url("./components/Explore/imagePlugin/Play.png");
+   width: 70px;
+  height: 70px;
+  background-size: cover;
+  margin: 40px;
+  background-repeat: no-repeat;
+}
 .forImgMusic_active .button1 {
   opacity: 1;
    background: url("./components/Explore/imagePlugin/pause1.png");
@@ -133,6 +213,15 @@
     margin-top: 10px;
    background-size: cover;
    
+  background-repeat: no-repeat;
+}
+.forResult_active .button1 {
+  opacity: 1;
+   background: url("./components/Explore/imagePlugin/pause1.png");
+   width: 70px;
+   height: 70px;
+   background-size: cover;
+   margin: 40px;
   background-repeat: no-repeat;
 }
 .forImgMusic_active:hover .button1 {
@@ -154,26 +243,27 @@
    background-size: cover;
   background-repeat: no-repeat;
 }
+.forResult_active:hover .button1 {
+  opacity: 1;
+   background: url("./components/Explore/imagePlugin/pause1.png");
+   width: 70px;
+   height: 70px;
+   background-size: cover;
+   margin: 40px;
+  background-repeat: no-repeat;
+}
 .forImgMusic img{
   height: 150px;
 }
-
-
-
 .forImgMusicP img{
   height: 50px;
   padding-left: 20px;
 }
 .forSliderDiv{
-  background: black;
   padding: 35px;
 }
 .LineDiv{
   height: 100px;
-}
-.TextSong{
-  color: white;
-  
 }
 .ForH3{
   margin-bottom: 5px;
@@ -183,13 +273,16 @@
 }
 .ForPartPag{
   width: 50%;
-  background: black ;
+  
+}
+.TextSong{
+  width: 150px;
 }
 .textPag{
   font-size: 15px;
   padding-top: 5px;
   margin-left: 7px;
-  color: white;
+  
 }
 .TextGenere{
   color: white;
@@ -203,7 +296,7 @@
   width: 20%;
   padding-left: 60px;
     padding-top: 35px;
-    background: black;
+    
 }
 .imgCreators{
   width: 133px;
@@ -215,13 +308,11 @@
 .textCreators{
   width: 30%;
   padding-top: 30px;
-  color: white;
-  background: black;
+  
 }
 .nameGenere{
   display: inline-flex;
-  background: black;
-  color: white;
+ 
   text-align: center;
   width: 100%;
 }
@@ -229,14 +320,253 @@
   width: 80px;
 }
 .buttonGenere{
-  color: white;
-  background: black;
+  background-color: transparent;
+  color: #b7b7b7;
   border:none
 }
-.buttonGenere:hover{
-  color: white;
-    border-bottom: 1px solid white;
+.buttonGenere_active{
+  color: #3a3a3a;
+  border-bottom: 1px solid ;
 }
+.buttonGenereFirst{
+  background-color: transparent;
+  color: #b7b7b7;
+  border:none;
+  
+}
+.buttonGenereFirst:hover{
+  border-bottom: 1px solid black;
+}
+.forNavbar{
+  display: flex;
+  
+}
+.ButtonUser{
+  background: none;
+  border: none;
+}
+
+.FilterMap{
+  display: flex;
+  flex-wrap: wrap;
+}
+.switch-btn {
+  display: inline-block;
+  width: 72px; /* ширина */
+  height: 38px; /* высота */
+  border-radius: 19px; /* радиус скругления */
+  background:  white; /* цвет фона */
+  z-index: 0;
+  margin: 0;
+  padding: 0;
+  border: none;
+  cursor: pointer;
+  position: relative;
+  transition-duration: 300ms; /* анимация */
+}
+.switch-btn::after {
+  content: "";
+  height: 32px; /* высота кнопки */
+  width: 32px; /* ширина кнопки */
+  border-radius: 17px;
+  background: black; /* цвет кнопки */
+  top: 3px; /* положение кнопки по вертикали относительно основы */
+  left: 3px; /* положение кнопки по горизонтали относительно основы */
+  transition-duration: 300ms; /* анимация */
+  position: absolute;
+  z-index: 1;
+}
+.switch-on {
+  background: #bfbfbf
+}
+.switch-on::after {
+  left: 37px;
+  background: #fff
+}
+.inputSearch{
+    width: 300px;
+    height: 40px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto ;
+    border: 1px solid black;
+    border-radius: 30px;
+    padding-left: 15px;
+   
+}
+.MusicSearch{
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin: 0 auto;
+  margin-top: 20px;
+  margin: 10px; 
+}
+.MusicSearch div{
+    margin: 4px;
+    height: 100%;
+}
+.DivCardSong{
+  display: flex;
+  width: 500px;
+  height: 200px;
+  position: relative;
+  margin: 30px;
+  
+}
+
+.TextCardSong{
+  font-size: 24px;
+  font-weight: 600;
+  margin-left: 30px;
+}
+.DivCardSong a{
+  margin-left: 30px;
+}
+.ButtonDownload{
+    width: 126px;
+    height: 40px;
+    border: none;
+    border-radius: 19px;
+    background:#552BFC;
+    color: #fff;
+    font-weight: 700;
+  
+}
+.ForTitle{
+  margin: 10px;
+  width: 227px;
+}
+.HeaderModalCreate{
+  text-align: center;
+}
+.inputClass{
+  margin-top: 20px;
+}
+.inputClassFirst{
+  margin-bottom: 20px;
+}
+.inputClass input{
+  background: rgb(243 234 234);
+  border-color: rgb(238, 97, 97);
+  margin-bottom: 20px;
+}
+.inputClass input::-webkit-input-placeholder { color: rgb(233, 61, 61); }
+
+.inputClassSign{
+  margin-top: 20px;
+  }
+  
+.inputClassSign input{
+    background: rgb(243 234 234);
+    border-color: rgb(238, 97, 97);
+    margin-bottom: 20px;
+}
+.inputClassSign input::-webkit-input-placeholder { color: rgb(233, 61, 61); }
+.account-data{
+  margin-bottom: 30px;
+  background: rgb(24, 24, 24);
+  border-radius: 10px;
+  padding: 20px;
+}
+.account-data p{
+  text-align: center;
+  margin-top: 20px;
+}
+.ForAccountImg{
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  
+}
+.ForAccountImg-change{
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.size-image{
+  width: 150px;
+  height: 150px;
+  border-radius: 74px;
+  overflow:hidden 
+}
+.size-image-small{
+  width: 47px;
+  height: 47px;
+  border-radius: 23px;
+  overflow:hidden;
+  margin-right: 20px; 
+  
+}
+.nav-pills .nav-link.active {
+    background-color: rgb(61, 61, 61);
+}
+.input-form{
+    border-radius: 8px;
+    border: none;
+    width: 500px;
+    padding-left: 10px;
+    margin-bottom: 20px;
+}
+.form-name-input{
+    font-size: 20px;
+}
+.button-change-password{
+    width: 200px;
+    height: 40px;
+    border: none;
+    border-radius: 19px;
+    background:#552BFC;
+    color: #fff;
+    font-weight: 700;
+}
+.title-change-password{
+  padding-top: 20px;
+}
+.TabContainer{
+    display: flex;
+    padding-left: 30px;
+    background: #212121;
+}
+.TabAccountSettings{
+    width: 600px;
+    margin: 0 auto;
+    padding-top: 30px;
+}
+.col{
+    padding-top: 20px;
+}
+.flex-column a{
+  color: #fff;
+}
+
+
+.section-account{
+color: #fff;
+}
+.section-home{
+  background: linear-gradient(270deg, #0e1011 0%, #FFFFFF 98.99%);
+  height: 1000px;
+  padding: 25px;
+  
+}
+.section-home h1{
+ color: #0e1011;
+ font-size: 3.75rem;
+ width: 50%;
+ font-weight: 500;
+}
+.section-home h2{
+  color: black;
+  font-size: 17px;
+  width: 50%;
+ }
+ #file-image{
+  visibility: hidden;
+ }
+ #myForm button{
+  margin-bottom: 20px;
+ }
 @keyframes App-logo-spin {
   from {
     transform: rotate(0deg);

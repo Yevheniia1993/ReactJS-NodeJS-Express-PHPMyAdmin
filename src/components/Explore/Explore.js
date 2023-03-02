@@ -3,9 +3,11 @@ import NoTransitionExample from "./Slider2";
 import Items from "./Pagination";
 import FetchMusic from "./FetchMusic";
 import SimpleSlider from "./Slider3";
-import PlaySong from "./PlaySong";
 import Filter from "./Filter";
-function Explore() {
+import MapList from "./Map";
+
+function Explore(props) {
+  // let meStore = props.ourStore;
   const TextAllTop = "TextSong";
   const DivImageAllTop = "forImgMusic";
   const Text = "textPag";
@@ -16,9 +18,12 @@ function Explore() {
   const ShowAlbum = 3;
   const [Genere, setGenere] = useState([]);
   const [MusicGenere, setMusicGenere] = useState([]);
+  const [activGenere, setActivGenere] = useState("");
   const TextG = "TextSong";
-  const DivImageG = "forImgMusic";
+  let buttonGenere = "buttonGenere";
+  let focusmy = true;
   function doneGenere(genere) {
+    // console.log(localStorage.getItem("Login"));
     let mygenere = genere.replace(/&/g, "%26");
     fetch(`http://localhost:3010/GenereListSong?Genere=${mygenere}`, {
       headers: {
@@ -33,24 +38,8 @@ function Explore() {
         setMusicGenere(GenreSong);
       });
   }
-  const [playMusic, setPlayMusic] = useState(false);
-  const [prevSong, setPrevSong] = useState();
-  const MusicGenerePlay = MusicGenere.map((item, index) => {
-    return (
-      <div
-        className={DivImageG}
-        key={index}
-        onClick={(event) =>
-          PlaySong(event, setPrevSong, setPlayMusic, prevSong, playMusic)
-        }
-      >
-        <img src={item.IMG} alt="Third slide" />
-        <div className={TextG}>{item.Name}</div>
-        <audio src={item.MP3} type="audio/ogg"></audio>
-      </div>
-    );
-  });
   useEffect(() => {
+    let FirstTab = "";
     fetch("http://localhost:3010/GenereList", {
       headers: {
         "Content-Type": "application/json",
@@ -62,15 +51,27 @@ function Explore() {
       .then((data) => {
         let dataSong = [...data];
         setGenere(dataSong);
+        FirstTab = dataSong[0].Genere;
+
+        if (focusmy === true) {
+          doneGenere(FirstTab);
+          setActivGenere(FirstTab);
+        }
       });
   }, []);
   const Generemy = Genere.map((item, index) => {
-    // если индекс ===0 добавить еще доп класс активе
+    const ActiveGenere = item.Genere === activGenere && focusmy;
+    const musicGenere = ActiveGenere
+      ? `${buttonGenere} ${buttonGenere}_active`
+      : buttonGenere;
     return (
       <div key={index}>
         <button
-          className="buttonGenere"
-          onClick={doneGenere.bind(this, item.Genere)}
+          className={musicGenere}
+          onClick={() => {
+            doneGenere(item.Genere);
+            setActivGenere(item.Genere);
+          }}
         >
           {item.Genere}
         </button>
@@ -120,7 +121,10 @@ function Explore() {
         </div>
       </div>
       <div className="nameGenere">{Generemy}</div>
-      <SimpleSlider mysongs={MusicGenerePlay} Show={Show} />
+      <SimpleSlider
+        mysongs={MapList(DivImageAllTop, TextG, MusicGenere)}
+        Show={Show}
+      />
       <Filter />
     </div>
   );
